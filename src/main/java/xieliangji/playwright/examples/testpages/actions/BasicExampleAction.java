@@ -3,7 +3,6 @@ package xieliangji.playwright.examples.testpages.actions;
 import com.microsoft.playwright.Page;
 import xieliangji.playwright.examples.testpages.Helper;
 import xieliangji.playwright.examples.testpages.page.BasicExamplePage;
-import xieliangji.playwright.examples.testpages.page.HomePage;
 
 public class BasicExampleAction extends BasicExamplePage {
     public BasicExampleAction(Page page) {

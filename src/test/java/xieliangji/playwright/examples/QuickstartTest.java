@@ -1,7 +1,9 @@
 package xieliangji.playwright.examples;
 
-import com.microsoft.playwright.*;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 
 @DisplayName("快速开始")
 public class QuickstartTest {
@@ -12,43 +14,9 @@ public class QuickstartTest {
     }
 
     @Nested
-    class PlaywrightTest {
-
+    class PlaywrightTest extends TestLifecycleControl {
         static final String GOOGLE_URL = "https://google.com/ncr";
 
-        static Playwright playwright;
-        static Browser browser;
-
-        BrowserContext context;
-        Page page;
-
-        @BeforeAll
-        @DisplayName("初始化浏览器")
-        static void setup() {
-            playwright = Playwright.create();
-            browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setSlowMo(50).setHeadless(false));
-        }
-
-        @AfterAll
-        @DisplayName("关闭浏览器")
-        static void teardown() {
-            browser.close();
-            playwright.close();
-        }
-
-        @BeforeEach
-        @DisplayName("初始化页面")
-        void initContextPage() {
-            context = browser.newContext();
-            page = context.newPage();
-        }
-
-        @AfterEach
-        @DisplayName("关闭页面")
-        void releaseContextPage() {
-            page.close();
-            context.close();
-        }
 
         @Test
         @DisplayName("打开Google Search页面")
